@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 import json
 import requests
-
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from .forms import *
 
 # def cosuslta(item):
@@ -29,5 +29,22 @@ def CriaEmpresa(request):
 	return render(request, 'app_empresas/cadastra_empresas.html', {'form':form})
 
 def Lista_empresas(request):
-	item = Empresa.objects.all()
+	item_empresa = Empresa.objects.all()
+	paginator = Paginator(item_empresa, 2)
+	page = request.GET.get('page')
+	try:
+		item = paginator.page(page)
+	except PageNotAnInteger:
+		# If page is not an integer, deliver first page.
+		item = paginator.page(1)
+	except EmptyPage:
+		# If page is out of range (e.g. 9999), deliver last page of results.
+		item = paginator.page(paginator.num_pages)
 	return render(request, "app_empresas/lista_empresas.html", {'item':item})
+
+def Detalha_empresa(request,nr_item):
+	try:
+		item = Empresa.objects.get(pk=nr_item)
+	except:
+		raise Http404('Sem Registro!')
+	return render(request, "app_empresas/item_empresa.html", {'item': item})

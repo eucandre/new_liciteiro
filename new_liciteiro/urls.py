@@ -35,4 +35,5 @@ urlpatterns = [
      url(r'^admin/', admin.site.urls),
      url(r'^$',CriaEmpresa),
      url(r'^lista/',Lista_empresas),
+     url(r'^item_empresa/(?P<nr_item>\d+)/$',Detalha_empresa),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

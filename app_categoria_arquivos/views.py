@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from .forms import *
+
 def Cria_categoria_arquivos(request):
     if request.method == 'POST':
       form = FormCategoriaArquivos(request.POST)

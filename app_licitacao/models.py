@@ -5,7 +5,7 @@ from django.db import models
 
 class Tipos_de_Licitacao(models.Model):
 	nome = models.CharField(max_length=300)
-	sigla = models.CharField(max_length = 2)
+	sigla = models.CharField(max_length = 10)
 	data_criacao = models.DateTimeField(auto_now = True)
 	
 	def __unicode__(self):

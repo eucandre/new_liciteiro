@@ -4,6 +4,7 @@ from .models import *
 class FormEmpresa(forms.ModelForm):
 	cnpj = forms.CharField(max_length = 150, widget=forms.TextInput(attrs={"class":"form-control"}))
 	fantasia = forms.CharField(max_length=300, required= False,widget=forms.TextInput(attrs={"class":"form-control",'readonly':'readonly'}))
+	razao_social=forms.CharField(max_length=300, required= False,widget=forms.TextInput(attrs={"class":"form-control",'readonly':'readonly'}))
 	atividade_principal = forms.CharField(max_length=150, widget=forms.TextInput(attrs={"class":"form-control",'readonly':'readonly'}))
 	atividades_secundarias =	forms.CharField(max_length=1500000, widget=forms.Textarea(attrs={"class":"form-control",'readonly':'readonly'}))
 	capital_social = forms.CharField(max_length=150, widget=forms.TextInput(attrs={"class":"form-control",'readonly':'readonly'}))
@@ -16,6 +17,9 @@ class FormEmpresa(forms.ModelForm):
 	telefone = forms.CharField(max_length=150, widget=forms.TextInput(attrs={"class":"form-control",'readonly':'readonly'}))
 	bairro = forms.CharField(max_length=150, widget=forms.TextInput(attrs={"class":"form-control",'readonly':'readonly'}))
 	cidade = forms.CharField(max_length=150, widget=forms.TextInput(attrs={"class":"form-control",'readonly':'readonly'}))
+	
 	class Meta:
 		model = Empresa
-		fields = "__all__"
+		fields = ('cnpj', 'fantasia', 'razao_social', 'atividade_principal', 'atividades_secundarias', 'capital_social',
+							'natureza_juridica',
+							'data_situacao', 'uf', 'abertura', 'situacao', 'email', 'telefone', 'bairro', 'cidade')

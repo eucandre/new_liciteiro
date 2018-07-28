@@ -1,16 +1,12 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from django.http import Http404
 from django.shortcuts import render
 import json
 import requests
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from .forms import *
-
-# def cosuslta(item):
-# 	response = requests.get('https://www.receitaws.com.br/v1/cnpj/'+item)
-# 	json = response.json()
-# 	return json
 
 def CriaEmpresa(request):
 	

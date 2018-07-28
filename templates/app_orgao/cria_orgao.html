@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Início</a></li>
+    <li class="breadcrumb-item"><a href="#">Library</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Data</li>
+  </ol>
+</nav>
+<script language="JavaScript">
+function pergunta(){
+   if (confirm('Nome Fanatsia - {{api.nome}}; Cidade -{{api.municipio}} ')){
+      document.seuformulario.submit()
+   }
+}
+
+</script>
+<script type="text/javascript">
+	function persiste(){
+		var xhttp = new XMLHttpRequest();
+    var cnpjs = document.getElementById("id_cnpj");
+    var Fanatsia = document.getElementById("id_fantasia");
+    var atv_main = document.getElementById("id_atividade_principal");
+    var atv_sec = document.getElementById("id_atividades_secundarias");
+    var cap_social = document.getElementById("id_capital_social");
+    var dta_situacao = document.getElementById("id_data_situacao");
+    var uf = document.getElementById("id_uf");
+    var natureza_j = document.getElementById("id_natureza_juridica");
+    var open = document.getElementById("id_abertura");
+    var situation = document.getElementById("id_situacao");
+    var e_mail = document.getElementById("id_email");
+    var telphone = document.getElementById("id_telefone");
+    var bairr = document.getElementById("id_bairro");
+    var city = document.getElementById("id_cidade");
+    var vet = [];
+  	xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+       // document.getElementById("demo").innerHTML = JSON.parse(this.response).fantasia;
+       document.getElementById("demo").innerHTML = JSON.parse(this.response).municipio;
+       Fanatsia.value = JSON.parse(this.response).fantasia;
+        atv_main.value = JSON.parse(this.response).atividade_principal[0]['text'];
+        if (JSON.parse(this.response).atividades_secundarias){
+          for (var i = 0; i < (JSON.parse(this.response).atividades_secundarias).length; i++){
+            vet.push(JSON.parse(this.response).atividades_secundarias[i]['text'],);
+            atv_sec.value =vet;
+          }
+        }
+        // atv_sec.value = JSON.parse(this.response).atividades_secundarias[0]['text'];
+
+        cap_social.value = JSON.parse(this.response).capital_social;
+        dta_situacao.value = JSON.parse(this.response).data_situacao;
+        uf.value = JSON.parse(this.response).uf
+        natureza_j.value = JSON.parse(this.response).natureza_juridica;
+        open.value = JSON.parse(this.response).abertura;
+        situation.value = JSON.parse(this.response).situacao;
+        if (JSON.parse(this.response).email){
+          e_mail.value = JSON.parse(this.response).email;
+        }
+        else{
+          e_mail.value = '@'
+          }
+
+        // telphone.value = JSON.parse(this.response).telefone;
+        if (JSON.parse(this.response).telefone){
+          telphone.value = JSON.parse(this.response).telefone;
+        }
+        else{
+          telphone.value = 'Sem informar'
+          }
+
+        bairr.value = JSON.parse(this.response).bairro;
+        city.value = JSON.parse(this.response).municipio;
+
+       confirm(JSON.parse(this.response).fantasia);
+
+    }
+  };
+  xhttp.open("GET", "https://www.receitaws.com.br/v1/cnpj/"+cnpjs.value, true);
+  xhttp.send();
+}
+</script>
+
+<script type="text/javascript">
+  function activate_btn(){
+    var fcnpj = document.getElementById('id_cnpj');
+    var bton = document.getElementById('btV');
+    if (!fcnpj.value){
+      bton.value.disabled=true;
+    }
+    else{
+      bton.value.disabled=false
+    }
+  }
+</script>
+
+<script type="text/javascript">
+
+</script>
+
+<div class="container">
+	<div class="col-md-12">
+		<form name=seuformulario action="" method="post" >
+			{% csrf_token %}
+			<div class="form-group" onload="activate_btn()">
+        <input id="btV" class="btn btn-success" type=button onclick="persiste()" value="Verificar cadastro" > </div>
+        {{form.as_p}}
+
+			</div>
+			<p id="demo"></p>
+		</div>
+		<div class="col-md-12" align="center">
+			<button type="submit" class="btn btn-info">Salvar o Registro</button>
+		</div>
+
+	</form>
+
+</div>
+
+{% endblock %}

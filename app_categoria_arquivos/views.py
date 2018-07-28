@@ -13,7 +13,7 @@ def Cria_categoria_arquivos(request):
         form.save()
     else:
       form = FormCategoriaArquivos()
-    return render(request, 'app_objeto/cria_objeto.html', {'form': form})
+    return render(request, 'app_categoria_arquivos/cria_categoria_arquivos.html', {'form': form})
 
 def lista_categorias_arquivos(request):
   item_categorias_arquivos = Categoria_Arquivos.objects.all()

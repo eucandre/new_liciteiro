@@ -7,6 +7,7 @@ class Empresa(models.Model):
 	
 	cnpj= models.CharField(max_length=150)
 	fantasia = models.CharField(max_length=300, blank = True, null = True)
+	razao_social = models.CharField(max_length = 300, blank = True, null = True)
 	atividade_principal = models.CharField(max_length=150, blank = True, null = True)
 	atividades_secundarias = models.CharField(max_length=1500000, blank = True, null = True) 
 	capital_social = models.CharField(max_length=150, blank = True, null = True) 

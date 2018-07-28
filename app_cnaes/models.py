@@ -47,7 +47,7 @@ class Cnaes_classes(models.Model):
 	observacoes = models.TextField()
 
 	def __unicode__(self):
-		return self.descricao_grupo
+		return self.descricao_classe
 
 	class Meta:
 		verbose_name_plural = "Classes dos grupos das sessões e das divisões das CNAES"
@@ -60,7 +60,7 @@ class Cnaes_sub_classes(models.Model):
 	observacoes = models.TextField()
 	atividades = models.CharField(max_length=150000)
 	def __unicode__(self):
-		return self.descricao_grupo
+		return self.descricao_sub_classe
 
 	class Meta:
 		verbose_name_plural = "Classes dos grupos das sessões e das divisões das CNAES"

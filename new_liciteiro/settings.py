@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app_empresa',
     'app_cnaes',
+    'bootstrap_pagination',
+    'pagination_bootstrap',
     'djng',
 ]
 
@@ -50,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'pagination_bootstrap.middleware.PaginationMiddleware',
 ]
 
 ROOT_URLCONF = 'new_liciteiro.urls'
@@ -65,6 +68,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                "django.template.context_processors.media",
+                "django.template.context_processors.i18n",
             ],
         },
     },
@@ -119,11 +124,12 @@ USE_L10N = True
 
 USE_TZ = True
 
+
 FORM_RENDERER = 'djng.forms.renderers.DjangoAngularBootstrap3Templates'
-FORM_RENDERER = 'djng.forms.renderers.DjangoAngularTemplates'
+#FORM_RENDERER = 'djng.forms.renderers.DjangoAngularTemplates'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-STATIC_ROOT = "/var/www/example.com/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'

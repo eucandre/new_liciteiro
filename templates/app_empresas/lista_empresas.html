@@ -1,4 +1,9 @@
 {%extends 'base.html'%}
+{% load bootstrap_pagination %}
+{% load pagination_tags %}
+{% autopaginate object_list %}
+{% paginate %}
+
 {% block conteudo %}
 	<!-- {% for i in item %}
 		<div class="list-group">

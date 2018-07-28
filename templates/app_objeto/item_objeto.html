@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block conteudo %}
+	<h1>{{item.fantasia}} </h1>
+
+	<div class="col-md-9 col-sm-9">
+		<span> Com a natureza jurídica {{item.natureza_juridica}}</span>
+	</div>
+	<div class="col-md-9 col-sm-9" style="width: 100%;">
+		<div class="table-responsive">
+			<table class="table">
+		    <thead>
+		      <tr style="color: #046350;">
+		      	 <th>Nome </th>
+		         <th>Data de Criação</th>
+		         <th>Ativo</th>
+
+		         <!-- <th>Colaborador Responsável </th>     -->
+		       </tr>
+
+		      </thead>
+		        <tbody>
+
+		       <tr>
+                   <td>{{ item.nome|upper }}</td>
+		        <td>{{ item.data_criacao }}</td>
+		        <td>{{ item.ativo }}</td>
+
+		      </tr>
+
+		    </tbody>
+		  </table>
+		</div>
+	</div>
+	<div class="col-sm-6 col-md-6">
+  	<blockquote>{{item.observacoes}}</blockquote>
+	</div>
+
+
+{% endblock %}

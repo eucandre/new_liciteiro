@@ -6,7 +6,7 @@ from app_uf_cidades.models import *
 
 class Fonte(models.Model):
 	nome = models.CharField(max_length=300)
-	uf = models.CharField(Estado)
+	uf = models.ForeignKey(Estado)
 	data_criacao = models.DateTimeField(auto_now= True)
 	ativo = models.BooleanField()
 

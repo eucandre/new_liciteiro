@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="101d2088-15d8-41ba-ad55-b0aa058f2ea3" name="Default" comment="Novas classes">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/new_liciteiro.iml" afterPath="$PROJECT_DIR$/.idea/new_liciteiro.iml" />
+    <list default="true" id="101d2088-15d8-41ba-ad55-b0aa058f2ea3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_cnaes/models.py" afterPath="$PROJECT_DIR$/app_cnaes/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_licitacao/models.py" afterPath="$PROJECT_DIR$/app_licitacao/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new_liciteiro/settings.py" afterPath="$PROJECT_DIR$/new_liciteiro/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/app_empresas/lista_empresas.html" afterPath="$PROJECT_DIR$/templates/app_empresas/lista_empresas.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -407,7 +399,14 @@
       <option name="project" value="LOCAL" />
       <updated>1532019520135</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Objetos criados">
+      <created>1532737597470</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1532737597470</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -443,7 +442,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="mineração de texto" />
-    <option name="LAST_COMMIT_MESSAGE" value="mineração de texto" />
+    <MESSAGE value="Objetos criados" />
+    <option name="LAST_COMMIT_MESSAGE" value="Objetos criados" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

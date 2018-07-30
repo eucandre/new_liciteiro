@@ -4,7 +4,7 @@ from .models import *
 class FormEmpresa(forms.ModelForm):
 	cnpj = forms.CharField(max_length = 150, widget=forms.TextInput(attrs={"class":"form-control"}))
 	fantasia = forms.CharField(max_length=300, required= False,widget=forms.TextInput(attrs={"class":"form-control",'readonly':'readonly'}))
-	razao_social=forms.CharField(max_length=300, required= False,widget=forms.TextInput(attrs={"class":"form-control",'readonly':'readonly'}))
+	razao_social=forms.CharField(max_length=300, required= False,widget=forms.TextInput(attrs={"class":"form-control"}))
 	atividade_principal = forms.CharField(max_length=150, widget=forms.TextInput(attrs={"class":"form-control",'readonly':'readonly'}))
 	atividades_secundarias =	forms.CharField(max_length=1500000, widget=forms.Textarea(attrs={"class":"form-control",'readonly':'readonly'}))
 	capital_social = forms.CharField(max_length=150, widget=forms.TextInput(attrs={"class":"form-control",'readonly':'readonly'}))

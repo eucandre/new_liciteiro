@@ -11,7 +11,7 @@
 		    <thead>
 		      <tr style="color: #046350;">
 		      	 <th>Nome </th>
-		         <th>Data de Criação</th>
+		         <th>Sessões da Cnae</th>
 		         <th>Ativo</th>
 
 		         <!-- <th>Colaborador Responsável </th>     -->
@@ -22,7 +22,7 @@
 
 		       <tr>
                    <td>{{ item.nome|upper }}</td>
-		        <td>{{ item.data_criacao }}</td>
+		        <td>{% for i in item.sessoes_cnaes.values %}{{ i.descricao_sessao }}{% endfor %}</td>
 		        <td>{{ item.ativo }}</td>
 
 		      </tr>

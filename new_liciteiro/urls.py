@@ -41,5 +41,9 @@ urlpatterns = [
      url(r'^lista_orgao',Lista_orgaos),
      url(r'^item_orgao/(?P<nr_item>\d+)/$',item_orgao),
      url(r'^cria_cidade', Cria_cidade),
+     url(r'^lista_cidade',Lista_cidades),
+     url(r'^item_cidade/(?P<nr_item>\d+)/$',item_cidades),
      url(r'^cria_estado', Cria_estado),
+     url(r'^lista_estados',Lista_estados),
+     url(r'^item_estado/(?P<nr_item>\d+)/$',item_estados),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

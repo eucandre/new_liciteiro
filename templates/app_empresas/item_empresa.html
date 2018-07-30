@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 {% block conteudo %}
-	<h1>{{item.fantasia}} </h1>
+	<h1>{{item.razao_social}} </h1>
 	<!-- <div class="pull-right"><a href="/CriaCliente/"><i class="material-icons">&#xe7f0;</i></a>
 		<a href="/Edita_Cliente/{{item.id}}/" title="Editar Cliente"><i class="material-icons">&#xE869;</i></a>
 	</div> -->
 	<div class="col-md-9 col-sm-9">	
-		<span> Com a natureza jurídica {{item.natureza_juridica}}</span>
+		<span> Com a natureza jurídica {{item.natureza_juridica}}</span><br >
+        <span> E atividade Principal {{ item.atividade_principal }}.
 	</div>
 	<div class="col-md-9 col-sm-9" style="width: 100%;">
 		<div class="table-responsive">
@@ -27,7 +28,7 @@
 		        <tbody>
 		       
 		       <tr>
-		    		<td>{{ item.fantasia|upper }}</td>
+                   <td>{{ item.fantasia|upper }}</td>
 		        <td>{{ item.cnpj|upper }}</td>
 		        <td>{{ item.capital_social|upper }}</td>	
 		        <td>{{ item.telefone|upper }}</td>
@@ -35,8 +36,7 @@
 		        <td>{{ item.bairro }}</td>
 		        <td>{{ item.cidade }}</td>
 		        <td>{{ item.atividades_secundarias }}</td>
-		        <!-- <td><a href="{{ item.imagem_loja.url }}"><img src="{{ item.imagem_loja.url }}" width="100" class="img-thumbnail"></a></td>
-		        <td>{{ item.colaborador_responsavel }}</td> -->
+
 
 		      </tr>
 		      
@@ -44,9 +44,7 @@
 		  </table>
 		</div>
 	</div>
-	<div class="col-sm-6 col-md-6">
-  	<blockquote>{{item.observacoes}}</blockquote>
-	</div>
+
 
 
 {% endblock %}

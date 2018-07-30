@@ -1,10 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block conteudo %}
+	<h1>{{item.razao_social}} </h1>
+	<!-- <div class="pull-right"><a href="/CriaCliente/"><i class="material-icons">&#xe7f0;</i></a>
+		<a href="/Edita_Cliente/{{item.id}}/" title="Editar Cliente"><i class="material-icons">&#xE869;</i></a>
+	</div> -->
+	<div class="col-md-9 col-sm-9">	
+		<span> Com a natureza jurídica {{item.natureza_juridica}}</span><br >
+        <span> E atividade Principal {{ item.atividade_principal }}.</span>
+	</div>
+	<div class="col-md-9 col-sm-9" style="width: 100%;">
+		<div class="table-responsive">
+			<table class="table">
+		    <thead>
+		      <tr style="color: #046350;">
+		      	 <th>Nome</th>
+		         <th>Código</th>
+		         <th>Acrônimo</th>
+		         <th>Ativo</th>
+		         <th>Data criação</th>
 
-</body>
-</html>
+		       </tr>
+
+		      </thead>
+		        <tbody>
+		       
+		       <tr>
+                   <td>{{ item.nome|upper }}</td>
+		        <td>{{ item.codigo|upper }}</td>
+		        <td>{{ item.acronimo|upper }}</td>
+		        <td>{{ item.ativo|upper }}</td>
+		        <td>{{ item.email }}</td>
+
+		      </tr>
+		      
+		    </tbody>
+		  </table>
+		</div>
+	</div>
+
+
+
+{% endblock %}

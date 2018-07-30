@@ -20,7 +20,7 @@ function pergunta(){
 		var xhttp = new XMLHttpRequest();
     var cnpjs = document.getElementById("id_cnpj");
     var Fanatsia = document.getElementById("id_fantasia");
-    var Fanatsia = document.getElementById("id_fantasia");
+    var razao_social = document.getElementById("id_razao_social");
     var atv_main = document.getElementById("id_atividade_principal");
     var atv_sec = document.getElementById("id_atividades_secundarias");
     var cap_social = document.getElementById("id_capital_social");
@@ -39,6 +39,7 @@ function pergunta(){
        // document.getElementById("demo").innerHTML = JSON.parse(this.response).fantasia;
        document.getElementById("demo").innerHTML = JSON.parse(this.response).municipio;
        Fanatsia.value = JSON.parse(this.response).fantasia;
+       razao_social.value = JSON.parse(this.response).nome;
         atv_main.value = JSON.parse(this.response).atividade_principal[0]['text'];
         if (JSON.parse(this.response).atividades_secundarias){
           for (var i = 0; i < (JSON.parse(this.response).atividades_secundarias).length; i++){

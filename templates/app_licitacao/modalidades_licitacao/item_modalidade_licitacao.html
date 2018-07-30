@@ -12,14 +12,9 @@
 			<table class="table">
 		    <thead>
 		      <tr style="color: #046350;">
-		      	 <th>Nome Fantasia</th>
-		         <th>Cpf/Cnpj</th>
-		         <th>Capital Social (R$)</th>
-		         <th>TeleFone</th>
-		         <th>e-mail</th>
-		         <th>Bairro</th>
-		         <th>Cidade</th>
-		         <th>Atividades Secundárias </th>
+		      	 <th>Nome </th>
+		         <th>Ativo </th>
+                  <th>Data de Criação </th>
 		         <!-- <th>Colaborador Responsável </th>     -->
 		       </tr>
 
@@ -27,16 +22,9 @@
 		        <tbody>
 
 		       <tr>
-		    		<td>{{ item.fantasia|upper }}</td>
-		        <td>{{ item.cnpj|upper }}</td>
-		        <td>{{ item.capital_social|upper }}</td>
-		        <td>{{ item.telefone|upper }}</td>
-		        <td>{{ item.email }}</td>
-		        <td>{{ item.bairro }}</td>
-		        <td>{{ item.cidade }}</td>
-		        <td>{{ item.atividades_secundarias }}</td>
-		        <!-- <td><a href="{{ item.imagem_loja.url }}"><img src="{{ item.imagem_loja.url }}" width="100" class="img-thumbnail"></a></td>
-		        <td>{{ item.colaborador_responsavel }}</td> -->
+		    		<td>{{ item.nome|upper }}</td>
+		        <td>{{ item.ativo|upper }}</td>
+		        <td>{{ item.data_criacao|upper }}</td>
 
 		      </tr>
 

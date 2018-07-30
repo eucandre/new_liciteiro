@@ -21,6 +21,10 @@ class Modalidade_Licitacao(models.Model):
 	
 	def __unicode__(self):
 		return self.nome
+	
+	class Meta:
+		verbose_name_plural = 'Modalidasdes de Licitação'
+
 
 class Atos_Licitacao(models.Model):
 	nome = models.CharField(max_length = 150)
@@ -31,3 +35,6 @@ class Atos_Licitacao(models.Model):
 	
 	def __unicode__(self):
 		return self.nome
+	
+	class Meta:
+		verbose_name_plural = 'Atos de Licitação'

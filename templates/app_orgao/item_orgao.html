@@ -1,19 +1,26 @@
 {% extends "base.html" %}
 {% block conteudo %}
-	<h1>{{item.fantasia}} </h1>
-
+	<h1>{{item.razao_social}} </h1>
+	<!-- <div class="pull-right"><a href="/CriaCliente/"><i class="material-icons">&#xe7f0;</i></a>
+		<a href="/Edita_Cliente/{{item.id}}/" title="Editar Cliente"><i class="material-icons">&#xE869;</i></a>
+	</div> -->
 	<div class="col-md-9 col-sm-9">
-		<span> Com a natureza jurídica {{item.natureza_juridica}}</span>
+		<span> Com a natureza jurídica {{item.natureza_juridica}}</span><br >
+        <span> E atividade Principal {{ item.atividade_principal }}.
 	</div>
 	<div class="col-md-9 col-sm-9" style="width: 100%;">
 		<div class="table-responsive">
 			<table class="table">
 		    <thead>
 		      <tr style="color: #046350;">
-		      	 <th>Nome </th>
-		         <th>Data de Criação</th>
-		         <th>Ativo</th>
-
+		      	 <th>Nome Fantasia</th>
+		         <th>Cpf/Cnpj</th>
+		         <th>Capital Social (R$)</th>
+		         <th>TeleFone</th>
+		         <th>e-mail</th>
+		         <th>Bairro</th>
+		         <th>Cidade</th>
+		         <th>Atividades Secundárias </th>
 		         <!-- <th>Colaborador Responsável </th>     -->
 		       </tr>
 
@@ -21,9 +28,15 @@
 		        <tbody>
 
 		       <tr>
-                   <td>{{ item.nome|upper }}</td>
-		        <td>{{ item.data_criacao }}</td>
-		        <td>{{ item.ativo }}</td>
+                   <td>{{ item.fantasia|upper }}</td>
+		        <td>{{ item.cnpj|upper }}</td>
+		        <td>{{ item.capital_social|upper }}</td>
+		        <td>{{ item.telefone|upper }}</td>
+		        <td>{{ item.email }}</td>
+		        <td>{{ item.bairro }}</td>
+		        <td>{{ item.cidade }}</td>
+		        <td>{{ item.atividades_secundarias }}</td>
+
 
 		      </tr>
 
@@ -31,9 +44,7 @@
 		  </table>
 		</div>
 	</div>
-	<div class="col-sm-6 col-md-6">
-  	<blockquote>{{item.observacoes}}</blockquote>
-	</div>
+
 
 
 {% endblock %}

@@ -22,12 +22,12 @@ class FormModalidadeLiciatacao(forms.ModelForm):
     fields = ('nome', 'ativo')
 
 class FormAtosLiciatacao(forms.ModelForm):
-  nome = forms.CharField(label = 'Ato', max_length = 500,
+  nome = forms.CharField(label = 'Ato', max_length = 150,
                          widget = forms.TextInput(attrs = {'class': 'form-control'}))
-  ativo = forms.BooleanField(label = "Ativo", widget = forms.CheckboxInput(attrs = {'class': 'form-control'}))
-  padrao = forms.BooleanField(label = "Padão", widget = forms.CheckboxInput(attrs = {'class': 'form-control'}))
-  nova_data = forms.BooleanField(label = "Nova data", widget = forms.CheckboxInput(attrs = {'class': 'form-control'}))
-  
+  ativo = forms.BooleanField(label = "Ativo")
+  padrao = forms.BooleanField(label = "Padão")
+  nova_data = forms.BooleanField(label = "Nova data")
+
   class Meta:
-    model = Modalidade_Licitacao
+    model = Atos_Licitacao
     fields = ('nome', 'ativo', 'padrao', 'nova_data')

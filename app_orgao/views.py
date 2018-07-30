@@ -14,12 +14,12 @@ def Cria_orgao(request):
       response = requests.get('https://www.receitaws.com.br/v1/cnpj/' + item.cnpj)
       json = response.json()
       item.save()
-      return render(request, 'app_empresas/cadastra_empresas.html', {'form': form, 'api': json})
+      return render(request, 'app_orgao/cria_orgao.html', {'form': form, 'api': json})
   else:
     
     form = FormOrgao()
   
-  return render(request, 'app_empresas/cadastra_empresas.html', {'form': form})
+  return render(request, 'app_orgao/cria_orgao.html', {'form': form})
 
 
 def Lista_orgaos(request):
@@ -34,7 +34,7 @@ def Lista_orgaos(request):
   except EmptyPage:
     # If page is out of range (e.g. 9999), deliver last page of results.
     item = paginator.page(paginator.num_pages)
-  return render(request, "app_objeto/lista_objetos.html", {'item': item})
+  return render(request, "app_orgao/lista_orgaos.html", {'item': item})
 
 
 def item_orgao(request, nr_item):
@@ -42,5 +42,5 @@ def item_orgao(request, nr_item):
     item = Orgao.objects.get(pk = nr_item)
   except:
     raise Http404('Sem Registro!')
-  return render(request, "app_objeto/item_objeto.html", {'item': item})
+  return render(request, "app_orgao/item_orgao.html", {'item': item})
 

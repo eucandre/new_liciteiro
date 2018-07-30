@@ -23,7 +23,7 @@
 		       <tr>
                    <td>{{ item.nome|upper }}</td>
 		        <td>{% for i in item.sessoes_cnaes.values %}{{ i.descricao_sessao }}{% endfor %}</td>
-		        <td>{{ item.ativo }}</td>
+		        <td>{% if i.ativo %}Sim {% else %}Não{% endif %}</td>
 
 		      </tr>
 

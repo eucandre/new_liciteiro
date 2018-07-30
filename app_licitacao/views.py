@@ -49,7 +49,7 @@ def Cria_Ato_licitacao(request):
 
 
 def Lista_ato_licitacao(request):
-  item_objeto = Tipos_de_Licitacao.objects.all()
+  item_objeto = Atos_Licitacao.objects.all()
   paginator = Paginator(item_objeto, 2)
   page = request.GET.get('page')
   try:
@@ -65,7 +65,7 @@ def Lista_ato_licitacao(request):
 
 def item_ato_licitacao(request, nr_item):
   try:
-    item = Tipos_de_Licitacao.objects.get(pk = nr_item)
+    item = Atos_Licitacao.objects.get(pk = nr_item)
   except:
     raise Http404('Sem Registro!')
   return render(request, "app_licitacao/tipos_licitacao/item_tipo_licitacao.html", {'item': item})

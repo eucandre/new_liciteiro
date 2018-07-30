@@ -9,6 +9,7 @@ class Estado(models.Model):
   acronimo = models.CharField(max_length = 2)
   codigo = models.CharField(max_length = 3)
   ativo = models.BooleanField()
+  data_criacao = models.DateTimeField(auto_now = True)
   
   class Meta:
     verbose_name_plural = "Unidades Federativas da União"

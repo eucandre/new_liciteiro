@@ -12,7 +12,7 @@
       <a href="/item_objeto/{{i.id}}" class="list-group-item list-group-item-action flex-column align-items-start active">
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1">{{i}}</h5>
-          <small>Ativa? {{i.ativo}}</small>
+          <small>Ativa? {% if i.ativo %}Sim {% else %}Não{% endif %}</small>
         </div>
         <p class="mb-1">{{i.atividade_principal}}</p>
         <small>{{i.cidade}}-{{i.uf}}</small>

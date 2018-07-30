@@ -25,7 +25,7 @@
 		    		<td>{{ item.nome|upper }}</td>
 		        <td>{{ item.uf|upper }}</td>
 		        <td>{{ item.data_criacao|upper }}</td>
-		        <td>{{ item.ativo|upper }}</td>
+		        <td>{% if item.ativo %}SIM{% else %}NÃO{% endif %}</td>
 
 
 		      </tr>

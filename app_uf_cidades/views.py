@@ -16,6 +16,16 @@ def Cria_cidade(request):
     form = FormCidade()
   return render(request, 'app_uf_cidades/cria_uf_cidades.html', {'form': form})
 
+def edita_cidade(request, nr_item):
+  item = Cidade.objects.get(pk = nr_item)
+  if request.method == 'POST':
+    form = FormCidade(request.POST, instance = item)
+    if form.is_valid():
+      form.save()
+  else:
+    form = FormCidade(instance = item)
+  return render(request, 'app_uf_cidades/cria_uf_cidades.html', {'form': form})
+
 def Lista_estados(request):
   item_objeto = Estado.objects.all()
   paginator = Paginator(item_objeto, 2)
@@ -70,4 +80,14 @@ def Cria_estado(request):
       form.save()
   else:
     form = FormEstado()
+  return render(request, 'app_uf_cidades/Cria_uf_estado.html', {'form': form})
+
+def edita_estado(request, nr_item):
+  item = Estado.objects.get(pk = nr_item)
+  if request.method == 'POST':
+    form = FormCidade(request.POST, instance = item)
+    if form.is_valid():
+      form.save()
+  else:
+    form = FormCidade(instance = item)
   return render(request, 'app_uf_cidades/Cria_uf_estado.html', {'form': form})

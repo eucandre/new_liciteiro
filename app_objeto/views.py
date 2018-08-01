@@ -15,6 +15,16 @@ def Cria_Objeto(request):
     form = FormObjeto()
   return render(request, 'app_objeto/cria_objeto.html', {'form':form})
 
+def edita_objeto(request, nr_item):
+  item = Objeto.objects.get(pk = nr_item)
+  if request.method == 'POST':
+    form = FormObjeto(request.POST, instance = item)
+    if form.is_valid():
+      form.save()
+  else:
+    form = FormObjeto(instance = item)
+  return render(request, 'app_objeto/cria_objeto.html', {'form': form})
+
 def Lista_objetos(request):
   item_objeto = Objeto.objects.all()
   paginator = Paginator(item_objeto, 2)

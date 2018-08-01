@@ -16,6 +16,16 @@ def Cria_fontes(request):
     form = FormFonte()
   return render(request, 'app_fontes/cria_fontes.html', {'form': form})
 
+def edita_fonte(request, nr_item):
+  item = Fonte.objects.get(pk = nr_item)
+  if request.method == 'POST':
+    form = FormFonte(request.POST, instance = item)
+    if form.is_valid():
+      form.save()
+  else:
+    form = FormFonte(instance = item)
+  return render(request, 'app_fontes/cria_fontes.html', {'form': form})
+
 
 def Lista_fontes(request):
   item_objeto = Fonte.objects.all()

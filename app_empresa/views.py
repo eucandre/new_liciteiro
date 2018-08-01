@@ -24,6 +24,17 @@ def CriaEmpresa(request):
 		
 	return render(request, 'app_empresas/cadastra_empresas.html', {'form':form})
 
+def edita_empresa(request, nr_item):
+	item = Empresa.objects.get(pk = nr_item)
+	if request.method == 'POST':
+		form = FormEmpresa(request.POST, instance = item)
+		if form.is_valid():
+			form.save()
+	else:
+		form = FormEmpresa(instance = item)
+	return render(request, 'app_empresas/cadastra_empresas.html', {'form': form})
+
+
 def Lista_empresas(request):
 	item_empresa = Empresa.objects.all()
 	paginator = Paginator(item_empresa, 2)

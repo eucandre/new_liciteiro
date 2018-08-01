@@ -14,6 +14,17 @@ def Cria_Tipo_licitacao(request):
     form = FormTiposLiciatacao()
   return render(request, 'app_licitacao/cria_tipo_licitacao.html', {'form': form})
 
+def edita_Tipo_licitacao(request,nr_item):
+  item = Tipos_de_Licitacao.objects.get(pk = nr_item)
+  if request.method == 'POST':
+    form = FormTiposLiciatacao(request.POST, instance = item)
+    if form.is_valid():
+      form.save()
+  else:
+    form = FormTiposLiciatacao(instance = item)
+  return render(request, 'app_licitacao/cria_tipo_licitacao.html', {'form': form})
+
+
 def Lista_tipo_licitacao(request):
   item_objeto = Tipos_de_Licitacao.objects.all()
   paginator = Paginator(item_objeto, 2)
@@ -47,6 +58,15 @@ def Cria_Ato_licitacao(request):
     form = FormAtosLiciatacao()
   return render(request, 'app_licitacao/cria_ato_licitacao.html', {'form': form})
 
+def edita_Ato_licitacao(request, nr_item):
+  item = Atos_Licitacao.objects.get(pk = nr_item)
+  if request.method == 'POST':
+    form = FormAtosLiciatacao(request.POST, instance = item)
+    if form.is_valid():
+      form.save()
+  else:
+    form = FormAtosLiciatacao(instance = item)
+  return render(request, 'app_licitacao/cria_ato_licitacao.html', {'form': form})
 
 def Lista_ato_licitacao(request):
   item_objeto = Atos_Licitacao.objects.all()
@@ -70,8 +90,6 @@ def item_ato_licitacao(request, nr_item):
     raise Http404('Sem Registro!')
   return render(request, "app_licitacao/tipos_licitacao/item_tipo_licitacao.html", {'item': item})
 
-
-
 def Cria_Modalidade_licitacao(request):
   if request.method == 'POST':
     form = FormModalidadeLiciatacao(request.POST)
@@ -79,6 +97,16 @@ def Cria_Modalidade_licitacao(request):
       form.save()
   else:
     form = FormModalidadeLiciatacao()
+  return render(request, 'app_licitacao/cria_modalidade.html', {'form': form})
+
+def edita_Modalidade_licitacao(request, nr_item):
+  item = Modalidade_Licitacao.objects.get(pk = nr_item)
+  if request.method == 'POST':
+    form = FormModalidadeLiciatacao(request.POST, instance = item)
+    if form.is_valid():
+      form.save()
+  else:
+    form = FormModalidadeLiciatacao(instance = item)
   return render(request, 'app_licitacao/cria_modalidade.html', {'form': form})
 
 def Lista_modalidade_licitacao(request):

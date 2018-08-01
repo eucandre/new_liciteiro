@@ -22,6 +22,23 @@ def Cria_orgao(request):
   return render(request, 'app_orgao/cria_orgao.html', {'form': form})
 
 
+def edita_orgao(request,nr_item):
+  item = Orgao.objects.get(pk = nr_item)
+  if request.method == 'POST':
+    form = FormOrgao(request.POST, instance = item)
+    if form.is_valid():
+      item = form.save(commit = False)
+      response = requests.get('https://www.receitaws.com.br/v1/cnpj/' + item.cnpj)
+      json = response.json()
+      item.save()
+      return render(request, 'app_orgao/cria_orgao.html', {'form': form, 'api': json})
+  else:
+    
+    form = FormOrgao(instance = item)
+  
+  return render(request, 'app_orgao/cria_orgao.html', {'form': form})
+
+
 def Lista_orgaos(request):
   item_objeto = Orgao.objects.all()
   paginator = Paginator(item_objeto, 2)

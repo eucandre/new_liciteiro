@@ -15,6 +15,18 @@ def Cria_categoria_arquivos(request):
       form = FormCategoriaArquivos()
     return render(request, 'app_categoria_arquivos/cria_categoria_arquivos.html', {'form': form})
 
+
+def edita_categoria_arquivos(request, nr_item):
+  item = Categoria_Arquivos.objects.get(pk = nr_item)
+  if request.method == 'POST':
+    form = FormCategoriaArquivos(request.POST, instance = item)
+    if form.is_valid():
+      form.save()
+  else:
+    form = FormCategoriaArquivos(instance = item)
+  return render(request, 'app_categoria_arquivos/cria_categoria_arquivos.html', {'form': form})
+
+
 def lista_categorias_arquivos(request):
   item_categorias_arquivos = Categoria_Arquivos.objects.all()
   paginator = Paginator(item_categorias_arquivos, 2)
